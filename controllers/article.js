@@ -46,5 +46,14 @@ module.exports = {
                 }
             })
         })
+    },
+
+    detailsGet: (req, res) => {
+        let id = req.params.id;
+
+        Article.findById(id).populate('author').then(article => {
+
+            res.render('article/details', article);
+        })
     }
 };

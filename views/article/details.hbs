@@ -1,0 +1,27 @@
+<div class="container body-content">
+    <div class="row">
+        <div class ="col-md-12">
+            <article>
+                <header>
+                    <h2>{{title}}</h2>
+                </header>
+                <p>
+                    {{content}}
+                </p>
+                <small class="author">
+                   Author:  <b>{{author.fullName}}</b>
+                </small>
+                <small class="author">
+                    Date published: <b>{{date}}</b>
+                </small>
+                <footer>
+                    <div class="pull-right">
+                        <a class="btn btn-success" href="/article/edit/{{id}}">Edit </a>
+                        <a class="btn btn-danger" href="/article/delete/{{id}}">Delete </a>
+                        <a class="btn btn-default" href="/">Back</a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </div>
+</div>

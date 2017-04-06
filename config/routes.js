@@ -18,5 +18,7 @@ module.exports = (app) => {
     app.get('/user/logout', userController.logout);
 
     app.get('/user/details', userController.detailsGet);
+
+    app.get('/article/details/:id', articleController.detailsGet);
 };
 
