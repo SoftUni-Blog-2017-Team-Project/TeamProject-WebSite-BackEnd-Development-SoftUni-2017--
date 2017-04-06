@@ -1,26 +1,98 @@
-<div class="container body-content">
-    <div class="row">
-        {{#each articles}}
-            <div class="col-md-6">
-                <article>
-                    <header>
-                        <h2>{{this.title}}</h2>
-                    </header>
-
-                    <p>{{this.content}}
-                    </p>
-
-                    <small class="author">
-                        {{this.author.fullName}}
-                    </small>
-
-                    <footer>
-                        <div class="pull-right">
-                            <a class="btn btn-default btn-xs" href="/article/details/{{this.id}}">Read more &raquo;</a>
-                        </div>
-                    </footer>
-                </article>
+<body class="indexbody">
+<main class="index-main-parallax">
+    <h1 class="pagelogo-heading"><strong>QUOTER</strong></h1>
+    <h5 class="pagelogo-subheading" style="font-family:Georgia, serif">All quotes everywhere!</h5>
+    <div class="parallax">
+        <div class="authors container body-content">
+            <div class="row">
+                <div class="col-md-5 homepage-articles-aboutus">
+                    <article >
+                        <header class="heading">
+                            About "Quoter"
+                        </header>
+                        <p class="about-us-parag">
+                            Quoter is the place where you can learn how to express yourself. Here you can share your quotes with people all around the world, see what they think and learn different thoughts about life
+                        </p>
+                    </article>
+                </div>
             </div>
-        {{/each}}
+            <div class="row">
+                <div class="col-md-5 homepage-articles-development">
+                    <article >
+                        <header class="heading" style="color:black;">
+                            Join us
+                        </header>
+                        <p class="about-us-parag">
+                            You can see our <a href="/wall">wall</a> with most recent posts, or <a href="/user/login">login</a> and post one yourself!
+                            Don't have an account? Don't wait! Join Quoter and share your thoughts. <a href="/user/register">Register</a>
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+    <h1 class="pagelogo-middleheading" ><strong>DEVELOPERS:</strong></h1>
+    <div class="index-main-parallax">
+        <div class="authors container body-content " style="padding-top: 20px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <article>
+                        <header style="padding-bottom: 10px">
+                            <h2 style="color:white; padding-bottom: 20px">Kristian Subev</h2>
+                            <img class="img-circle"
+                                 style="border: solid white 2px"
+                                 src="https://scontent.fsof2-1.fna.fbcdn.net/v/t1.0-9/15940484_1251088838310395_2156689392945410071_n.jpg?oh=d6456b1c8d6d532d50b0e4b20f290a32&oe=592AA55E"
+                                 alt="Kristian Subev avatar"
+                                 height="200"
+                                 width="200"
+                            >
+
+                        </header>
+                        <p class="pagelogo" style="padding-top: 10px; border-radius: 10px">
+                            Kristian is currently studying <em>Software Technologies</em> at SoftUni (Software University). He is one of the developers of <em>Quoter</em>.
+                        </p>
+                        <a href="developers.html"><button class="button" style="vertical-align:middle"><span>Read More </span></button></a>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article>
+                        <header style="padding-bottom: 10px">
+                            <h2 style="color:white; padding-bottom: 20px">Deyan Peychev</h2>
+                            <img class="img-circle"
+                                 style="border: solid white 2px"
+                                 src="https://scontent.fsof2-1.fna.fbcdn.net/v/t1.0-9/11947628_485029141670405_6902279186667194896_n.jpg?oh=0c3fe500dad24a42c9db5ace9f39acf9&oe=596ED991"
+                                 alt="Deyan Peychev avatar"
+                                 height="200"
+                                 width="200">
+                        </header>
+                        <p class="pagelogo" style="padding-top: 10px; border-radius: 10px">
+                            Deyan is currently studying <em>Software Technologies</em> at SoftUni (Software University). He is one of the developers of <em>Quoter</em>.
+                        </p>
+                        <a href="developers.html"><button class="button" style="vertical-align:middle"><span>Read More </span></button></a>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article>
+                        <header style="padding-bottom: 10px">
+                            <h2 style="color:white; padding-bottom: 20px">Stefan Petrov</h2>
+                            <img class="img-circle"
+                                 style="border: solid white 2px"
+                                 src="https://scontent.fsof2-1.fna.fbcdn.net/v/t1.0-9/13256077_507967389375722_8747012705584150802_n.jpg?oh=ad7ccda000d091da81c35178c3138544&oe=59377881"
+                                 alt="Stefan Petrov avatar"
+                                 height="200"
+                                 width="200"
+                            >
+
+                        </header>
+                        <p class="pagelogo" style="padding-top: 10px; border-radius: 10px">
+                            Stefan is currently studying <em>Software Technologies</em> at SoftUni (Software University). He is one of the developers of <em>Quoter</em>.
+                        </p>
+                        <a href="developers.html"><button class="button" style="vertical-align:middle"><span>Read More </span></button></a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

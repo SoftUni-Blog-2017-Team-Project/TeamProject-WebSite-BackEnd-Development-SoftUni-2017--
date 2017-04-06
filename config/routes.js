@@ -6,6 +6,8 @@ const homeController = require('./../controllers/home');
 module.exports = (app) => {
     app.get('/', homeController.index);
 
+    app.get('/wall', homeController.wall);
+
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
 
