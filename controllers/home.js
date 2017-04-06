@@ -12,4 +12,8 @@ module.exports = {
         })
     },
 
+    devsInfoGet: (req, res) => {
+        res.render('developers/info');
+    },
+
 };

@@ -8,6 +8,8 @@ module.exports = (app) => {
 
     app.get('/wall', homeController.wall);
 
+    app.get('/developers/info', homeController.devsInfoGet);
+
     app.get('/user/register', userController.registerGet);
     app.post('/user/register', userController.registerPost);
 
