@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html style="height: 100%">
 <head>
-    <title>SoftUni blog</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="/javascripts/jquery-1.10.2.js"></script>
-    <script src="/javascripts/bootstrap.js"></script>
+    <title>Quoter - All quotes everywhere.</title>
+    <link rel="icon" href="/stylesheets/images/favicon.png" type="styles/images/favicon.png"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/stylesheets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body style="min-height: 100%; padding-bottom: 0">
 <header>
-    <div class="navbar navbar-default navbar-fixed-top text-uppercase">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="/"><img src="/stylesheets/images/logo.jpg" alt="Quoter Logo" border="0" /></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
             {{#if user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/wall">Wall</a></li>
-                        <li><a href="/user/details">Welcome, {{user.fullName}}</a></li>
-                        <li><a href="/article/create">New Post</a></li>
-                        <li><a href="/user/logout">Logout</a></li>
-                    </ul>
-                </div>
+                <nav class="white" role="navigation">
+                    <div class="nav-wrapper container">
+                        <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
+                            <li><a href="/wall">Wall</a></li>
+                            <li><a href="/article/create">New Post</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+
+                        <ul id="nav-mobile" class="side-nav">
+                            <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
+                            <li><a href="/wall">Wall</a></li>
+                            <li><a href="/article/create">New Post</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
             {{/if}}
             {{#unless user}}
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/user/register">Register</a></li>
-                        <li><a href="/user/login">Login</a></li>
-                    </ul>
-                </div>
+                <nav class="white" role="navigation">
+                    <div class="nav-wrapper container">
+                        <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="/user/register">Register</a></li>
+                            <li><a href="/user/login">Login</a></li>
+                        </ul>
+
+                        <ul id="nav-mobile" class="side-nav">
+                            <li><a href="/user/register">Register</a></li>
+                            <li><a href="/user/login">Login</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
             {{/unless}}
-        </div>
-    </div>
-</header>
 {{#if error }}
     <h2 class="pagelogo-errormsg">{{error}}</h2>
 {{/if}}
 {{{body}}}
+
+<!--  Scripts-->
+<script src="/javascripts/jquery-1.10.2.js"></script>
+<script src="/javascripts/materialize.js"></script>
+<script src="/javascripts/init.js"></script>
 </body>
 </html>

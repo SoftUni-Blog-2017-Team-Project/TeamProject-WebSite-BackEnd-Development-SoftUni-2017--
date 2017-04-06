@@ -1,39 +1,52 @@
-<div class="container body-content span=8 offset=2">
-    <div class="well">
-        <form class="form-horizontal" method="post" action="/user/register">
-            <fieldset>
-                <legend>Register</legend>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="inputEmail">Email</label>
-                    <div class="col-sm-4 ">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" required value={{email}} >
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="inputFullName">Full Name</label>
-                    <div class="col-sm-4 ">
-                        <input type="text" class="form-control" id="inputFullName" placeholder="Full Name" required name="fullName" value={{fullName}}>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="inputPassword">Password</label>
-                    <div class="col-sm-4">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required name="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label">Confirm Password</label>
-                    <div class="col-sm-4">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" required name="repeatedPassword">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <button type="reset" class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+<div id="index-banner top" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Join Us</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Join <b class="header center teal-text text-lighten-2">Quoter</b> and share your thoughts with people all around the world.</h5>
+            </div>
+        </div>
     </div>
+    <div class="parallax"><img src="/stylesheets/images/background6.jpg" alt="Unsplashed background img 1"></div>
 </div>
+<form class="col s10 offset-s1" method="post" action="/user/register">
+    <h3 class="header center teal-text text-lighten-2">Register</h3>
+    <div class="divider col s6 offset-s2 teal-text lighten-2"></div>
+    <br>
+    <div class="row">
+        <div class="input-field col s5 offset-s1">
+            <div class="col-sm-4 ">
+                <i class="material-icons">language</i> Email
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" required value={{email}} >
+            </div>
+        </div>
+        <div class="input-field col s5">
+            <div class="col-sm-4 ">
+                <i class="material-icons">person_pin</i> Username
+                <input type="text" class="form-control" id="inputFullName" placeholder="Username" required name="fullName" value={{fullName}}>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s5 offset-s1">
+            <div class="col-sm-4">
+                <i class="material-icons">lock</i> Password
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" required name="password">
+            </div>
+        </div>
+        <div class="input-field col s5">
+            <div class="col-sm-4">
+                <i class="material-icons">lock</i> Confirm Password
+                <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" required name="repeatedPassword">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4 center">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <br><br>
+    </div>
+</form>

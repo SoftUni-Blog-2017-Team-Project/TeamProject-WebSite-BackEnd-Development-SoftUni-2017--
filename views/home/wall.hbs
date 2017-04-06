@@ -1,17 +1,45 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Parallax Template - Materialize</title>
+</head>
+<body>
+<div id="index-banner top" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Express yourself.</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Share your thoughts with us.</h5>
+            </div>
+            <div class="row center">
+                <a href="/article/create" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 card-panel hoverable">New Post</a>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="/stylesheets/images/background4.jpg" alt="Unsplashed background img 1"></div>
+</div>
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large green" href="#top">
+        <i class="material-icons">navigation</i>
+    </a>
+</div>
 <div class="container body-content">
     <div class="row">
         {{#each articles}}
-            <div class="col-md-6">
+            <div class="col s12 m12">
                 <article>
                     <header>
-                        <h2>{{this.title}}</h2>
+                        <h4>{{this.title}}</h4>
                     </header>
 
                     <p>{{this.content}}
                     </p>
 
                     <small class="author">
-                        {{this.author.fullName}}
+                        Author: <b>{{this.author.fullName}}</b>
                     </small>
 
                     <footer>

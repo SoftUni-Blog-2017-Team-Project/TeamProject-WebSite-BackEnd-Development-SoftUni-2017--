@@ -42,7 +42,7 @@ module.exports = {
                 if (err) {
                     res.redirect('/', {error: err.message});
                 } else {
-                    res.redirect('/');
+                    res.redirect('/wall');
                 }
             })
         })
