@@ -9,6 +9,7 @@ let userSchema = mongoose.Schema(
         fullName: {type: String, required: true},
         articles: [{type: ObjectId, red: 'Article'}],
         salt: {type: String, required: true},
+        regDate: {type: Date, default: Date()}
     }
 );
 
