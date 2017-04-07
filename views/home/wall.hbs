@@ -3,8 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <title>Parallax Template - Materialize</title>
 </head>
-<body>
-<div id="index-banner top" class="parallax-container">
+<body class="z-depth-3">
+<div id="index-banner top" class="parallax-container z-depth-5">
     <div class="section no-pad-bot">
         <div class="container">
             <br><br>
@@ -27,7 +27,7 @@
         <i class="material-icons">navigation</i>
     </a>
 </div>
-<div class="container body-content ">
+<div class="container body-content " id ="posts">
     <div class="row">
         {{#each articles}}
             <div class="col s12 m12 z-depth-1" style="padding: 20px">
@@ -38,7 +38,7 @@
                             <h4>{{this.title}}</h4>
                         </header>
 
-                        <p>{{this.content}}
+                        <p>-{{this.content}}
                         </p>
 
                         <small class="author">

@@ -1,45 +1,35 @@
-<div id="index-banner top" class="parallax-container">
-    <div class="section no-pad-bot">
-        <div class="container">
-            <br><br>
-            <h1 class="header center teal-text text-lighten-2">NEW POST</h1>
-            <div class="row center">
-                <h5 class="header col s12 light">Never love anybody who treats you like you're ordinary</h5>
-                <h6 class="header col s12 light">-Oscar Wilde</h6>
-            </div>
-        </div>
-    </div>
-    <div class="parallax"><img src="/stylesheets/images/background6.jpg" alt="Unsplashed background img 1"></div>
-</div>
 <div class="container body-content span=8 offset=2">
     <div class="well">
-        <form class="form-horizontal" method="POST" action="/article/create">
-            <fieldset>
-                <legend>New Article</legend>
-
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="articleTitle">Article Title</label>
+        <form class="col s10 offset-s1" method="POST" action="/article/create">
+            <h3 class="header center teal-text text-lighten-2">New Post</h3>
+            <div class="divider col s6 offset-s2 teal-text lighten-2"></div>
+            <br>
+            <div class="row">
+                <div class="input-field col s4 offset-s4">
                     <div class="col-sm-4 ">
-                        <input type="text" class="form-control" id="articleTitle" placeholder="Article Title" name="title" required >
+                        <i class="material-icons">message</i> Quote
+                        <input type="text" class="form-control" id="articleTitle" placeholder="Quote" name="title" required >
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="articleContent">Content</label>
-
-                    <div class="col-sm-6">
-                        <textarea class="form-control" id="articleContent" rows="5" name="content" required></textarea>
+            </div>
+            <div class="row">
+                <div class="input-field col s4 offset-s4">
+                    <div class="col-sm-4">
+                        <i class="material-icons">person_pin</i> Author
+                        <input type="text" class="form-control" id="articleContent" name="content" placeholder='Author (type "Unknown" if not available)' required>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-4">
-
-                        <button type="reset" class="btn btn-default">Cancel</button>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 center">
+                    <a type="reset" class="btn btn-default" href="/wall">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-            </fieldset>
+                <br><br>
+            </div>
         </form>
     </div>
 </div>
+
+
+

@@ -7,7 +7,7 @@ module.exports = {
     },
 
     wall: (req, res) => {
-        Article.find({}).limit(6).populate('author').sort('-date').then(articles => {
+        Article.find({}).limit(100).populate('author').sort('-date').then(articles => {
             res.render('home/wall',{articles: articles});
         })
     },

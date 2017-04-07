@@ -9,52 +9,56 @@
 </head>
 <body style="min-height: 100%; padding-bottom: 0">
 <header>
-            {{#if user}}
-                <nav class="white" role="navigation">
-                    <div class="nav-wrapper container">
-                        <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
-                        <ul class="right hide-on-med-and-down">
-                            <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
-                            <li><a href="/wall">Wall</a></li>
-                            <li><a href="/article/create">New Post</a></li>
-                            <li><a href="/user/logout">Logout</a></li>
-                        </ul>
+    {{#if user}}
+        <nav class="white" role="navigation" id="tabs-swipe-demo">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
+                    <li><a href="/wall">Wall</a></li>
+                    <li><a href="/article/create">New Post</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                </ul>
 
-                        <ul id="nav-mobile" class="side-nav">
-                            <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
-                            <li><a href="/wall">Wall</a></li>
-                            <li><a href="/article/create">New Post</a></li>
-                            <li><a href="/user/logout">Logout</a></li>
-                        </ul>
-                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                    </div>
-                </nav>
-            {{/if}}
-            {{#unless user}}
-                <nav class="white" role="navigation">
-                    <div class="nav-wrapper container">
-                        <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
-                        <ul class="right hide-on-med-and-down">
-                            <li><a href="/user/register">Register</a></li>
-                            <li><a href="/user/login">Login</a></li>
-                        </ul>
+                <ul id="nav-mobile" class="side-nav" id="tabs-swipe-demo">
+                    <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
+                    <li><a href="/wall">Wall</a></li>
+                    <li><a href="/article/create">New Post</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    {{/if}}
+    {{#unless user}}
+        <nav class="white" role="navigation" id="tabs-swipe-demo">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/wall">Wall</a></li>
+                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Login</a></li>
+                </ul>
 
-                        <ul id="nav-mobile" class="side-nav">
-                            <li><a href="/user/register">Register</a></li>
-                            <li><a href="/user/login">Login</a></li>
-                        </ul>
-                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                    </div>
-                </nav>
-            {{/unless}}
-{{#if error }}
-    <h2 class="pagelogo-errormsg">{{error}}</h2>
-{{/if}}
-{{{body}}}
+                <ul id="nav-mobile" class="side-nav" id="tabs-swipe-demo">
+                    <li><a href="/wall">Wall</a></li>
+                    <li><a href="/user/register">Register</a></li>
+                    <li><a href="/user/login">Login</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+</header>
+    {{/unless}}
+    {{#if error }}
+        <div class="btn red" onclick="Materialize.toast('{{error}}', 4000)">An error occured. (click to see)</div>
+    {{/if}}
+    {{{body}}}
 
-<!--  Scripts-->
-<script src="/javascripts/jquery-1.10.2.js"></script>
-<script src="/javascripts/materialize.js"></script>
-<script src="/javascripts/init.js"></script>
+    <!--  Scripts-->
+    <script src="/javascripts/jquery-1.10.2.js"></script>
+    <script src="/javascripts/scrollfire-jquery-plugin.js"></script>
+    <script src="/javascripts/materialize.js"></script>
+    <script src="/javascripts/init.js"></script>
 </body>
 </html>

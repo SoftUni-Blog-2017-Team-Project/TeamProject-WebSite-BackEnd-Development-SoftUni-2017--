@@ -1,13 +1,37 @@
-<div class="container body-content">
-    <div class="row">
-        <div>
-            Username: {{user.fullName}}
-        </div>
-        <div>
-            Email: {{user.email}}
-        </div>
-        <div>
-            Date Registered: {{user.regDate}}
-        </div>
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="col s10 offset-s1 z-depth-2" style="padding-top: 30px">
+            <h3 class="header center teal-text text-lighten-2">User Details</h3>
+            <div class="divider col s6 offset-s2 teal-text lighten-2"></div>
+            <br>
+            <div class="row">
+                <div class="input-field col s8 offset-s4">
+                    <div class="col-sm-8 ">
+                        <i class="material-icons">person_pin</i> Username:
+                        <h5>{{user.fullName}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 offset-s4">
+                    <div class="col-sm-8">
+                        <i class="material-icons">language</i> Email:
+                        <h5>{{user.email}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 offset-s4" style="padding-bottom: 30px">
+                    <div class="col-sm-8">
+                        <i class="material-icons ">today</i> Date Registered:
+                        <h5>{{user.regDate}}</h5>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
+
+
+
+
