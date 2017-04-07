@@ -13,7 +13,8 @@
                 <h5 class="header col s12 light">Share your thoughts with us.</h5>
             </div>
             <div class="row center">
-                <a href="/article/create" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 card-panel hoverable">New Post</a>
+                <a href="/article/create" id="download-button"
+                   class="btn-large waves-effect waves-light teal lighten-1 card-panel hoverable">New Post</a>
             </div>
             <br><br>
 
@@ -26,28 +27,30 @@
         <i class="material-icons">navigation</i>
     </a>
 </div>
-<div class="container body-content">
+<div class="container body-content ">
     <div class="row">
         {{#each articles}}
-            <div class="col s12 m12">
-                <article>
-                    <header>
-                        <h4>{{this.title}}</h4>
-                    </header>
+            <div class="col s12 m12 z-depth-1" style="padding: 20px">
+                    <div>
+                        <div class="section">
 
-                    <p>{{this.content}}
-                    </p>
+                        <header>
+                            <h4>{{this.title}}</h4>
+                        </header>
 
-                    <small class="author">
-                        Author: <b>{{this.author.fullName}}</b>
-                    </small>
+                        <p>{{this.content}}
+                        </p>
 
-                    <footer>
-                        <div class="pull-right">
-                            <a class="btn btn-default btn-xs" href="/article/details/{{this.id}}">Read more &raquo;</a>
+                        <small class="author">
+                            Author: <b>{{this.author.fullName}}</b>
+                        </small>
+                        <div>
+                            <div class="right">
+                                <a class="btn btn-default btn-xs" href="/article/details/{{this.id}}">Read more &raquo;</a>
+                            </div>
                         </div>
-                    </footer>
-                </article>
+                        </div>
+                    </div>
             </div>
         {{/each}}
     </div>
