@@ -1,12 +1,12 @@
 const Article = require('mongoose').model('Article');
 
-function validateArticle( articleArgs, req) {
+function validateArticle(articleArgs, req) {
     let errorMsg = '';
-    if(!req.isAuthenticated()){
+    if (!req.isAuthenticated()) {
         errorMsg = 'You should be logged in to operate with articles!'
-    } else if (!articleArgs.title){
+    } else if (!articleArgs.title) {
         errorMsg = 'Invalid title!';
-    } else if (!articleArgs.content){
+    } else if (!articleArgs.content) {
         errorMsg = 'Invalid content!';
     }
 
@@ -14,6 +14,7 @@ function validateArticle( articleArgs, req) {
 }
 
 module.exports = {
+
     createGet: (req, res) => {
         if (!req.isAuthenticated()) {
             let returnUrl = '/article/create';
@@ -52,16 +53,19 @@ module.exports = {
         let id = req.params.id;
 
         Article.findById(id).populate('author').then(article => {
-
             res.render('article/details', article);
         })
     },
 
-    editGet: (req,res) => {
+    editGet: (req, res) => {
         let id = req.params.id;
 
         Article.findById(id).then(article => {
-            res.render('article/edit',article)
+            if (!req.user.isAuthor(article)) {
+                res.render('home/index', {error: "You cannot edit this post!"});
+            } else {
+                res.render('article/edit', article)
+            }
         });
     },
 
@@ -70,14 +74,9 @@ module.exports = {
 
         let articleArgs = req.body;
 
-        let errorMsg = '';
-        if (!articleArgs.title){
-            errorMsg = 'Article title cannot be empty!';
-        } else if (!articleArgs.content) {
-            errorMsg = 'Article content cannot be empty!'
-        }
+        let errorMsg = validateArticle(articleArgs, req);
 
-        if(errorMsg) {
+        if (errorMsg) {
             res.render('article/edit', {error: errorMsg})
         }
         else {
