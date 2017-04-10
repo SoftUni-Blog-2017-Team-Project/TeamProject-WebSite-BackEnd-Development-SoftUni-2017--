@@ -7,7 +7,8 @@ let userSchema = mongoose.Schema(
         email: {type: String, required: true, unique: true},
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
-        articles: [{type: ObjectId, red: 'Article'}],
+        articles: [{type: ObjectId, ref: 'Article'}],
+        roles: [{type: ObjectId, ref: 'Role'}],
         salt: {type: String, required: true},
         regDate: {type: Date, default: Date()}
     }
