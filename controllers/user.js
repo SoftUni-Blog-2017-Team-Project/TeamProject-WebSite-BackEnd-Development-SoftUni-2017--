@@ -29,6 +29,7 @@ module.exports = {
 
                 let roles = [];
                 Role.findOne({name: 'User'}).then(role => {
+                    let roleName = role.name;
                     roles.push(role.id);
 
                     let userObject = {
@@ -36,7 +37,9 @@ module.exports = {
                         passwordHash: passwordHash,
                         fullName: registerArgs.fullName,
                         salt: salt,
-                        roles: roles
+                        roles: roles,
+                        roleName: roleName,
+                        articles: []
                     };
                     User.create(userObject).then(user => {
                         role.users.push(user.id);

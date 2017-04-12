@@ -10,25 +10,50 @@
 <body style="min-height: 100%; padding-bottom: 0">
 <header>
     {{#if user}}
-        <nav class="white" role="navigation" id="tabs-swipe-demo">
-            <div class="nav-wrapper container">
-                <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
-                    <li><a href="/wall">Wall</a></li>
-                    <li><a href="/article/create">New Post</a></li>
-                    <li><a href="/user/logout">Logout</a></li>
-                </ul>
+        {{#if user.isAdmin}}
+                <nav class="white" role="navigation" id="tabs-swipe-demo">
+                    <div class="nav-wrapper container">
+                        <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="/user/details"><b class="chip">{{user.fullName}}</b></a></li>
+                            <li><a href="/user/details">Admin Panel</a></li>
+                            <li><a href="/wall">Wall</a></li>
+                            <li><a href="/article/create">New Post</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
 
-                <ul id="nav-mobile" class="side-nav" id="tabs-swipe-demo">
-                    <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
-                    <li><a href="/wall">Wall</a></li>
-                    <li><a href="/article/create">New Post</a></li>
-                    <li><a href="/user/logout">Logout</a></li>
-                </ul>
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
+                        <ul id="nav-mobile" class="side-nav" id="tabs-swipe-demo">
+                            <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
+                            <li><a href="/user/details">Admin Panel</a></li>
+                            <li><a href="/wall">Wall</a></li>
+                            <li><a href="/article/create">New Post</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
+        {{/if}}
+        {{#unless user.isAdmin}}
+                <nav class="white" role="navigation" id="tabs-swipe-demo">
+                    <div class="nav-wrapper container">
+                        <a id="logo-container" href="/" class="brand-logo">QUOTER</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="/user/details"><b class="chip">{{user.fullName}}</b></a></li>
+                            <li><a href="/wall">Wall</a></li>
+                            <li><a href="/article/create">New Post</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+
+                        <ul id="nav-mobile" class="side-nav" id="tabs-swipe-demo">
+                            <li><a href="/user/details">Welcome, <b>{{user.fullName}}</b></a></li>
+                            <li><a href="/wall">Wall</a></li>
+                            <li><a href="/article/create">New Post</a></li>
+                            <li><a href="/user/logout">Logout</a></li>
+                        </ul>
+                        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
+        {{/unless}}
     {{/if}}
     {{#unless user}}
         <nav class="white" role="navigation" id="tabs-swipe-demo">

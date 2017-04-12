@@ -1,14 +1,14 @@
 <div class="container body-content span=8 offset=2">
     <div class="well">
         <form class="col s10 offset-s1 z-depth-2" style="padding-top: 30px">
-            <h3 class="header center teal-text text-lighten-2">User Details</h3>
+            <h3 class="header center teal-text text-lighten-2">Details</h3>
             <div class="divider col s6 offset-s2 teal-text lighten-2"></div>
             <br>
             <div class="row">
                 <div class="input-field col s8 offset-s4">
                     <div class="col-sm-8 ">
                         <i class="material-icons">person_pin</i> Username:
-                        <h5>{{user.fullName}}</h5>
+                        <h5 class="chip">{{user.fullName}}</h5>
                     </div>
                 </div>
             </div>
@@ -16,19 +16,68 @@
                 <div class="input-field col s8 offset-s4">
                     <div class="col-sm-8">
                         <i class="material-icons">language</i> Email:
-                        <h5>{{user.email}}</h5>
+                        <h5 class="chip">{{user.email}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8 offset-s4">
+                    <div class="col-sm-8">
+                        <i class="material-icons ">today</i> Date Registered:
+                        <h5 class="chip">{{user.regDate}}</h5>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s8 offset-s4" style="padding-bottom: 30px">
                     <div class="col-sm-8">
-                        <i class="material-icons ">today</i> Date Registered:
-                        <h5>{{user.regDate}}</h5>
+                        <i class="material-icons ">grade</i> Role:
+                        <h5 class="chip">{{user.roleName}}</h5>
                     </div>
                 </div>
             </div>
         </form>
+        <h3 class="header center teal-text text-lighten-2">My Posts</h3>
+        <div class="divider col s6 offset-s2 teal-text lighten-2" style="margin-bottom: 50px"></div>
+        {{#if user.articles}}
+            <div class="container body-content " id ="posts">
+                <div class="row">
+                    {{#each user.articles}}
+                        <div class="col s12 m12 z-depth-1" style="padding: 20px">
+                            <div>
+                                <div class="section">
+
+                                    <header>
+                                        <h4>{{this.title}}</h4>
+                                    </header>
+                                    <div class="divider"></div>
+                                    <p>-{{this.content}}
+                                    </p>
+                                    <div>
+                                        <div class="right">
+                                            <a class="btn btn-default btn-xs" href="/article/details/{{this._id}}">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="row center">
+                <a href="/article/create" id="download-button"
+                   class="btn-large waves-effect waves-light teal lighten-1 card-panel hoverable">New Post</a>
+            </div>
+        {{/if}}
+        {{#unless user.articles}}
+            <div class="row center">
+                No posts available.
+            </div>
+            <div class="row center">
+                <a href="/article/create" id="download-button"
+                   class="btn-large waves-effect waves-light teal lighten-1 card-panel hoverable">New Post</a>
+            </div>
+        {{/unless}}
     </div>
 </div>
 

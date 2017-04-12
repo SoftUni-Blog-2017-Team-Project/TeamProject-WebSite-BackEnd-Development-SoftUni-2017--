@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Schema.Types.ObjectId;
+const Object = mongoose.Schema.Types.Object;
 const Role = require('mongoose').model('Role');
 const encryption = require('./../utilities/encryption');
 
@@ -8,10 +9,12 @@ let userSchema = mongoose.Schema(
         email: {type: String, required: true, unique: true},
         passwordHash: {type: String, required: true},
         fullName: {type: String, required: true},
-        articles: [{type: ObjectId, ref: 'Article'}],
+        articles: [{type: Object, ref: 'Article'}],
         roles: [{type: ObjectId, ref: 'Role'}],
         salt: {type: String, required: true},
-        regDate: {type: Date, default: Date()}
+        regDate: {type: Date, default: Date()},
+        roleName: {type: String},
+        isAdmin: {type: []}
     }
 );
 
@@ -41,19 +44,23 @@ module.exports.seedAdmin = () => {
     User.findOne({email: email}).then(admin => {
         if (!admin) {
             Role.findOne({name: 'Admin'}).then(role => {
+                let roleName = role.name;
                 let salt = encryption.generateSalt();
                 let passwordHash = encryption.hashPassword('admin', salt);
 
                 let roles = [];
                 roles.push(role.id);
-
+                let isAdmin = [];
+                isAdmin.push('admin index');
                 let user = {
                     email: email,
                     passwordHash: passwordHash,
                     fullName: 'Admin',
                     articles: [],
                     salt: salt,
-                    roles: roles
+                    roles: roles,
+                    roleName: roleName,
+                    isAdmin: isAdmin
                 };
 
                 User.create(user).then(user => {

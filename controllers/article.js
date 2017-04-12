@@ -38,7 +38,8 @@ module.exports = {
 
         articleArgs.author = req.user.id;
         Article.create(articleArgs).then(article => {
-            req.user.articles.push(article.id);
+
+            req.user.articles.push(article);
             req.user.save(err => {
                 if (err) {
                     res.redirect('/', {error: err.message});
