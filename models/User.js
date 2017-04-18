@@ -32,6 +32,15 @@ userSchema.method ({
         let isAuthor = article.author.equals(this.id);
         return isAuthor;
 
+    },
+    isInRole: function (roleName) {
+        return Role.findOne({name: roleName}).then(role => {
+            if (!role) {
+                return false;
+            }
+            let isInRole = this.roles.indexOf(role.id) !== -1;
+            return isInRole;
+        })
     }
 });
 

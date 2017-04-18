@@ -1,6 +1,7 @@
 const userController = require('./../controllers/user');
 const articleController = require('./../controllers/article');
 const homeController = require('./../controllers/home');
+const adminController = require('./../controllers/admin/admin');
 
 
 module.exports = (app) => {
@@ -30,6 +31,14 @@ module.exports = (app) => {
 
     app.get('/article/delete/:id', articleController.deleteGet);
     app.post('/article/delete/:id', articleController.deletePost);
+
+    app.get('/admin/user/all', adminController.user.all);
+
+    app.get('/admin/user/edit/:id', adminController.user.editGet);
+    app.post('/admin/user/edit/:id', adminController.user.editPost);
+
+    app.get('/admin/user/delete/:id', adminController.user.deleteGet);
+    app.post('/admin/user/delete/:id', adminController.user.deletePost);
 
 };
 
