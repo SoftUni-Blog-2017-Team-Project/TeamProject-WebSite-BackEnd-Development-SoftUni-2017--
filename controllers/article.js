@@ -130,7 +130,7 @@ module.exports = {
             if (article.likes.indexOf(currentUserID) === -1) {
                 article.likes.push(currentUserID);
             }
-            
+
             article.likesCount = article.likes.length;
             article.save();
             res.render('article/details', article);
