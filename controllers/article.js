@@ -63,8 +63,11 @@ module.exports = {
 
         Article.findById(id).then(article => {
             if (!req.user.isAuthor(article)) {
+
                 res.render('home/index', {error: "You cannot edit this post!"});
-            } else {
+            }
+            else {
+
                 res.render('article/edit', article)
             }
         });
@@ -92,7 +95,14 @@ module.exports = {
         let id = req.params.id;
 
         Article.findById(id).then(article => {
-            res.render('article/delete',article)
+            if (!req.user.isAuthor(article)) {
+                res.render('home/index', {error: "You cannot delete this post!"});
+            }
+            else
+            {
+
+                res.render('article/delete', article)
+            }
         });
     },
     deletePost: (req,res) => {
