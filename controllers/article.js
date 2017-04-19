@@ -60,9 +60,18 @@ module.exports = {
 
     editGet: (req, res) => {
         let id = req.params.id;
+
         console.log(req.user.isAdmin.length);
         Article.findById(id).then(article => {
+            if (!req.user.isAuthor(article)) {
+                res.render('home/index', {error: "You cannot edit this post!"});
+            } else {
             if(req.user.isAuthor(article) || req.user.isAdmin.length === 1){
+
+
+
+
+
                 res.render('article/edit', article)
             }
             else {
@@ -93,12 +102,15 @@ module.exports = {
         let id = req.params.id;
 
         Article.findById(id).then(article => {
+            res.render('article/delete',article)
             if(req.user.isAuthor(article) || req.user.isAdmin.length === 1){
                 res.render('article/delete', article)
             }
             else {
                 res.render('home/index', {error: "You cannot edit this post!"});
             }
+
+
         });
     },
     deletePost: (req,res) => {
@@ -107,6 +119,7 @@ module.exports = {
         Article.findOneAndRemove({_id: id}).populate('author').then(article => {
             let author = article.author;
 
+            let index = author.articles.indexOf(article.id0);
             let index = author.articles.indexOf(article.id);
 
             if(index > 0 ){
@@ -127,6 +140,7 @@ module.exports = {
         let id = req.params.id;
 
         Article.findOneAndUpdate(id).populate('author').then(article => {
+            article.likes +=1;
             if (article.likes.indexOf(currentUserID) === -1) {
                 article.likes.push(currentUserID);
             }
