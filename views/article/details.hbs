@@ -33,7 +33,13 @@
                 <small class="author">
                     Date published: <b>{{date}}</b>
                 </small>
-
+                {{#if user}}
+                    <form method="POST" action="/article/details/{{this.id}}">
+                        <div class="left">
+                            <button class="btn btn-default btn-xs" type="submit"><i class="small material-icons">thumb_up</i><span style="padding-left: 10px">{{this.likes}}</span></button>
+                        </div>
+                    </form>
+                {{/if}}
                 <div class="right">
                     {{#if user}}
                         <a id="authorval" class="waves-effect waves-light btn darken-2 yellow" href="/article/edit/{{id}}"><i class="material-icons">mode_edit</i></a>

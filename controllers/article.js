@@ -115,5 +115,13 @@ module.exports = {
                 });
             }
         });
+    },
+    like: (req,res) =>{
+        let id = req.params.id;
+        Article.findOneAndUpdate(id).populate('author').then(article => {
+            article.likes +=1;
+            article.save();
+            res.render('article/details', article);
+        })
     }
 };

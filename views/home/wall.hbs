@@ -22,11 +22,7 @@
     </div>
     <div class="parallax"><img src="/stylesheets/images/background4.jpg" alt="Unsplashed background img 1"></div>
 </div>
-<div class="fixed-action-btn horizontal click-to-toggle">
-    <a class="btn-floating btn-large green" href="#top">
-        <i class="material-icons">navigation</i>
-    </a>
-</div>
+
 <div class="container body-content " id ="posts">
     <div class="row">
         {{#each articles}}
@@ -41,7 +37,7 @@
                         <p>-{{this.content}}
                         </p>
 
-                        <small class="author chip">
+                        <small class="author chip" style="margin-bottom: 20px">
                             Author: <b>{{this.author.fullName}}</b>
                         </small>
                         <div>
@@ -54,4 +50,10 @@
             </div>
         {{/each}}
     </div>
+</div>
+
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large green" href="#top">
+        <i class="material-icons">navigation</i>
+    </a>
 </div>
