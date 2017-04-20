@@ -125,7 +125,9 @@ module.exports = {
         let currentUserID = req.user.id;
         let id = req.params.id;
 
-        Article.findById(id).then(article => {
+        Article.findById(id).populate('author').then(article => {
+            console.log(article);
+
             if (article.likes.indexOf(currentUserID) === -1) {
                 article.likes.push(currentUserID);
             }else{
@@ -135,7 +137,7 @@ module.exports = {
 
             article.likesCount = article.likes.length;
             article.save();
-            res.render('article/details', article);
+            res.render('article/details', article)
         })
     }
 };
