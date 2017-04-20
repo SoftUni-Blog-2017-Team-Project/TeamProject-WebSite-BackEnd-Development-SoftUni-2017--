@@ -61,12 +61,12 @@ module.exports = {
     editGet: (req, res) => {
         let id = req.params.id;
         Article.findById(id).then(article => {
-            if(!req.user.isAuthor(article) || !req.user.isInRole('Admin')){
-                res.render('home/index', {error: "You cannot edit this post!"});
+            if(req.user.isAuthor(article) || req.user.isAdmin.length === 1){
+                res.render('article/edit', article)
+
             }
             else {
-                res.render('article/edit', article)
-            }
+                res.render('home/index', {error: "You cannot edit this post!"});            }
         });
     },
 
@@ -96,7 +96,7 @@ module.exports = {
                 res.render('article/delete', article)
             }
             else {
-                res.render('home/index', {error: "You cannot edit this post!"});
+                res.render('home/index', {error: "You cannot delete this post!"});
             }
         });
     },
