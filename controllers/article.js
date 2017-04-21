@@ -66,7 +66,7 @@ module.exports = {
 
             }
             else {
-                res.render('home/index', {error: "You cannot edit this post!"});            }
+                res.render('home/index', {error: "You cannot edit this post!"});}
         });
     },
 
@@ -126,7 +126,6 @@ module.exports = {
         let id = req.params.id;
 
         Article.findById(id).populate('author').then(article => {
-            console.log(article);
 
             if (article.likes.indexOf(currentUserID) === -1) {
                 article.likes.push(currentUserID);
