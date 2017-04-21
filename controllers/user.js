@@ -10,6 +10,11 @@ module.exports = {
     registerPost:(req, res) => {
         let registerArgs = req.body;
         let password = registerArgs.password.toString();
+        let fullName = registerArgs.fullName.toString();
+        let email = registerArgs.email.toString();
+        let isnum = /^\d+$/.test(fullName);
+        let isEmailValid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+
         User.findOne({email: registerArgs.email}).then(user => {
             let errorMsg = '';
             if (user) {
@@ -19,6 +24,12 @@ module.exports = {
             }
             else if (password.length < 6){
                 errorMsg = 'Password must be at least 6 symbols long';
+            }
+            else if(isnum){
+                errorMsg='Username must have at least one symbol that is not digit';
+            }
+            else if(!isEmailValid){
+                errorMsg='Invalid email';
             }
             if (errorMsg) {
                 registerArgs.error = errorMsg;
