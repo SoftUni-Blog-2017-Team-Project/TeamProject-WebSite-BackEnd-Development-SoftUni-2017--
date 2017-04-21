@@ -9,7 +9,7 @@ module.exports = {
 
     registerPost:(req, res) => {
         let registerArgs = req.body;
-
+        let password = registerArgs.password.toString();
         User.findOne({email: registerArgs.email}).then(user => {
             let errorMsg = '';
             if (user) {
@@ -17,7 +17,9 @@ module.exports = {
             } else if (registerArgs.password !== registerArgs.repeatedPassword) {
                 errorMsg = 'Passwords do not match!'
             }
-
+            else if (password.length < 6){
+                errorMsg = 'Password must be at least 6 symbols long';
+            }
             if (errorMsg) {
                 registerArgs.error = errorMsg;
                 res.render('user/register', registerArgs)
