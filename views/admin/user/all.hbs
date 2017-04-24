@@ -14,12 +14,11 @@
 
         <tbody>
         {{#each users}}
-            <tr {{#if this.isAdmin }}class="info" {{/if}}>
+            <tr>
                 <td>{{ this.id }}</td>
                 <td>{{ this.fullName }}</td>
                 <td>{{ this.email }}</td>
                 <td>
-                    <a href="/admin/user/edit/{{this.id}}">Edit</a>
                     <a href="/admin/user/delete/{{this.id}}">Delete</a>
                 </td>
             </tr>

@@ -41,7 +41,22 @@ userSchema.method ({
             let isInRole = this.roles.indexOf(role.id) !== -1;
             return isInRole;
         })
-    }
+    },
+    prepareDelete: function() {
+        for(let role of this.roles) {
+            Role.findById(role).then(role => {
+                role.users.remove(this.id);
+                role.save();
+            })
+        }
+
+        let Article = mongoose.model('Article');
+        for(let article of this.articles) {
+            Article.findById(article).then(article => {
+                article.remove();
+            })
+        }
+    },
 });
 
 const User = mongoose.model('User', userSchema);

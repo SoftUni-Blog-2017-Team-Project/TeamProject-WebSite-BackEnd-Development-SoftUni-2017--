@@ -34,12 +34,9 @@ module.exports = (app) => {
 
     app.get('/admin/user/all', adminController.user.all);
 
-    app.get('/admin/user/edit/:id', adminController.user.editGet);
-    app.post('/admin/user/edit/:id', adminController.user.editPost);
+    app.post('/article/details/:id', articleController.like);
 
     app.get('/admin/user/delete/:id', adminController.user.deleteGet);
     app.post('/admin/user/delete/:id', adminController.user.deletePost);
-
-    app.post('/article/details/:id', articleController.like);
 };
 
