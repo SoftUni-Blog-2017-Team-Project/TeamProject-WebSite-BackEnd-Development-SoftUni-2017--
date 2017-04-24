@@ -20,6 +20,11 @@
                     </div>
                 </div>
             </div>
+            {{#if userToDelete.isAdmin}}
+                <div class="row center">
+                    <span class="small chip"><b>Warning! </b>Deleting Admin account may lead to problems. Are you sure you want to delete this account?</span>
+                </div>
+            {{/if}}
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4 center">
                     <a type="reset" class="btn btn-default" href="/admin/user/all">Cancel</a>
