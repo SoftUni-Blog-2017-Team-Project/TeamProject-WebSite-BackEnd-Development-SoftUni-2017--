@@ -1,36 +1,36 @@
 <div class="container body-content span=8 offset=2">
     <div class="well">
-        <form class="form-horizontal"
-              action="/admin/user/delete/{{userToDelete.id}}" method="post">
-            <fieldset>
-                <legend>Delete User - {{ userToDelete.fullName
-                }}</legend>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label"
-                           for="email">Email</label>
+        <form class="col s10 offset-s1" action="/admin/user/delete/{{userToDelete.id}}" method="post">
+            <h3 class="header center teal-text text-lighten-2">Delete User</h3>
+            <div class="divider col s6 offset-s2 teal-text lighten-2"></div>
+            <br>
+            <div class="row">
+                <div class="input-field col s4 offset-s4">
                     <div class="col-sm-4 ">
-                        <input class="form-control" id="email"
-                               value="{{ userToDelete.email }}" name="email" required type="text"
-                               disabled>
+                        <i class="material-icons">language</i> Email
+                        <input class="form-control" id="email" value="{{ userToDelete.email }}" name="email" required type="text" disabled>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label"
-                           for="fullName">Full Name</label>
-                    <div class="col-sm-4 ">
-                        <input type="text" class="form-control"
-                               id="fullName" value="{{ userToDelete.fullName }}" name="fullName"
-                               disabled>
+            </div>
+            <div class="row">
+                <div class="input-field col s4 offset-s4">
+                    <div class="col-sm-4">
+                        <i class="material-icons">person_pin</i> Username
+                        <input type="text" class="form-control" id="fullName" value="{{ userToDelete.fullName }}" name="fullName" disabled>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <a class="btn btn-default"
-                           href="/admin/user">Cancel</a>
-                        <button type="submit" class="btn btndanger">Delete</button>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 center">
+                    <a type="reset" class="btn btn-default" href="/admin/user/all">Cancel</a>
+                    <button type="submit" class="btn btn-primary red">Delete "<b>{{ userToDelete.fullName }}"</b></button>
                 </div>
-            </fieldset>
+                <br><br>
+            </div>
         </form>
     </div>
 </div>
+
+
+
+
